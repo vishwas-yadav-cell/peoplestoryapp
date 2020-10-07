@@ -21,6 +21,9 @@ app.use(express.urlencoded({ extended: true }));
 // hbs helpers:
 const { formatDate, truncate, stripTags, editIcon, select, ReadMoreBtnVisibility } = require('./helpers/hbs');
 
+// serving static files:
+app.use(express.static('public'));
+
 // setting up view engine:
 app.engine('.hbs', exphbs({
     extname: '.hbs', defaultLayout: 'main', helpers: {
@@ -31,7 +34,6 @@ app.engine('.hbs', exphbs({
         ReadMoreBtnVisibility
     }
 }));
-
 app.set('views', ('views'));
 app.set('view engine', '.hbs');
 
@@ -46,7 +48,6 @@ app.use(session({
 // passport middleware setup:
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 // Method overriding:
 app.use(
@@ -65,9 +66,6 @@ app.use((req, res, next) => {
     res.locals.user = req.user || null;
     next();
 })
-
-// serving static files:
-app.use(express.static('public'));
 
 // setting routes:
 app.use('/', require('./routes/index'));
