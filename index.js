@@ -31,6 +31,8 @@ app.engine('.hbs', exphbs({
         ReadMoreBtnVisibility
     }
 }));
+
+app.set('views', ('views'));
 app.set('view engine', '.hbs');
 
 // implementing express-session:
@@ -65,7 +67,7 @@ app.use((req, res, next) => {
 })
 
 // serving static files:
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 // setting routes:
 app.use('/', require('./routes/index'));
