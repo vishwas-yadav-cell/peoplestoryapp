@@ -19,7 +19,7 @@
     "nodemon": "^2.0.4"
   },
   "scripts": {
-    "test": "node index.js",
+    "start": "node index.js",
     "dev": "nodemon index.js"
   },
   "keywords": [],
