@@ -1,0 +1,28 @@
+p{
+    margin:10px 0px !important;
+}
+
+.login-container{
+    width: 400px;
+    margin-top:50px;
+    text-align: center;
+}
+
+#user-profile{
+    background:#db3236;
+    padding: 20px 20px;
+    padding-bottom: 5px;
+}
+
+#user-profile img{
+    height: 55px;
+    width: 55px;
+    border-radius: 30px;
+    border:2px solid #3cba54;
+}
+
+#user-profile>span{
+    font-size :20px;
+    margin-left: 20px;
+    align-content: center;
+}
