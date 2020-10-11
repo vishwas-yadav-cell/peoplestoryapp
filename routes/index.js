@@ -5,7 +5,7 @@ const Story = require('../models/Story');
 // login
 // route get /
 router.get('/', ensureGuest, (req, res) => {
-    res.render('Login', { layout: 'login' });
+    res.render('login', { layout: 'login' });
 });
 
 // dashboard
