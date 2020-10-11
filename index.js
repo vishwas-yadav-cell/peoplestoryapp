@@ -16,17 +16,18 @@ connectDB();
 require('./config/passport')(passport);
 
 // accepting form data:
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // hbs helpers:
 const { formatDate, truncate, stripTags, editIcon, select, ReadMoreBtnVisibility } = require('./helpers/hbs');
 
 // serving static files:
-app.use(express.static('public'));
+app.use(express.static('/public'));
 
 // setting up view engine:
-app.engine('.hbs', exphbs({
-    extname: '.hbs', defaultLayout: 'main', helpers: {
+app.engine('handlebars', exphbs({
+    extname: '.handlebars', defaultLayout: 'main', helpers: {
         formatDate,
         truncate,
         editIcon,
@@ -34,8 +35,7 @@ app.engine('.hbs', exphbs({
         ReadMoreBtnVisibility
     }
 }));
-app.set('views', ('views'));
-app.set('view engine', '.hbs');
+app.set('view engine', 'handlebars');
 
 // implementing express-session:
 app.use(session({
